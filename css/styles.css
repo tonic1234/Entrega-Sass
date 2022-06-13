@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+  text-align: center;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: rgba(227, 227, 227, 0.241);
+  width: 100%;
+  height: 100px;
+}
+
+header img {
+  width: 150px;
+  margin-top: 20px;
+}
+
+header li {
+  display: inline-block;
+  list-style: none;
+  margin: 35px 10px 0px 0px;
+  font-size: 13pt;
+}
+
+header li a {
+  text-decoration: none;
+}
+
+header li a:link, header li a:active, header li a:visited {
+  color: black;
+}
+
+header li a:hover {
+  color: #ff8336;
+}
+
+header button {
+  height: 35px;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ff8336;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+header button:hover {
+  background-color: white;
+  color: #ff8336;
+}
+
+.heroOne,
+.heroTwo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 50px;
+}
+
+.heroOne .heroBox,
+.heroTwo .heroBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 800px;
+}
+
+.heroOne .heroBox p,
+.heroTwo .heroBox p {
+  margin: 0px 50px 0px 50px;
+  text-align: justify;
+}
+
+.galeryTitle {
+  font-size: 26pt;
+  margin: 20px;
+}
+
+.heroGalery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 50px;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+}
+
+.heroGalery img {
+  width: 500px;
+}
+
+.heroGalery img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 150px;
+  background-color: #ff8400;
+}
+
+footer img {
+  margin-top: 30px;
+  height: 80px;
+}
+
+footer p {
+  color: white;
+  margin-top: 60px;
+}
+/*# sourceMappingURL=styles.css.map */
