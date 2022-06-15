@@ -1,21 +1,85 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Work+Sans:wght@300;400;600&display=swap');
+
+// font-family: 'Poppins', sans-serif;
+// font-family: 'Work Sans', sans-serif
+
+// Declaracion de Variables
 
 $bgColor: rgba(227, 227, 227, 0.241);
 $btColor: rgb(255, 131, 54);
 $ftColor: rgb(255, 132, 0);
+$crdColor: rgb(255, 255, 255);
+$ttleColor:rgb(64, 64, 64);
+$ttleFont: 'Poppins';
+$textFont: 'Work Sans';
+
+// Declaracion de Map
+
+$text:(col: #1a1a1a,
+  mar: 0px 50px 0px 50px,
+  ali:justify);
+
+// Declaracion de extend
+
+%cards {
+  background-color: $crdColor;
+  width: 300px;
+  height: 500px;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: solid rgb(225, 225, 225) 1px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.143);
+  transition: transform 0.5s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+}
+
+// Declaracion de Mixin
+
+@mixin title ($font, $color, $size) {
+  font-family: $font;
+  color: $color;
+  font-size: $size;
+  margin: 20px 0px;
+
+}
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Work Sans", sans-serif;
+  font-family: $textFont;
   text-align: center;
 }
+
+// Uso de mixin
+
+main {
+  h1 {
+    @include title($ttleFont, $ttleColor, 26pt);
+    
+  }
+
+  h2 {
+    @include title($ttleFont, $ttleColor, 20pt);
+  }
+
+  h3 {
+    @include title($ttleFont, $ttleColor, 16pt);
+
+  }
+}
+
+
 
 header {
   display: flex;
   justify-content: space-around;
-  background-color: $bgColor;
+  background-color: $bgColor; 
   width: 100%;
   height: 100px;
 
@@ -23,25 +87,36 @@ header {
     width: 150px;
     margin-top: 20px;
   }
-  li {
-    display: inline-block;
-    list-style: none;
-    margin: 35px 10px 0px 0px;
-    font-size: 13pt;
 
-    a {
-      text-decoration: none;
+  .nav {
+    li {
+      display: inline-block;
+      list-style: none;
+      margin: 35px 10px 0px 0px;
+      font-size: 13pt;
+      transition: transform 1s;
 
-      &:link,
-      &:active,
-      &:visited {
-        color: black;
-      }
       &:hover {
-        color: $btColor;
+        transform: scale(1.1);
+      }
+
+      a {
+        text-decoration: none;
+        transition: color 0.8s;
+
+        &:link,
+        &:active,
+        &:visited {
+          color: black;
+        }
+
+        &:hover {
+          color: $btColor;
+        }
       }
     }
   }
+
   button {
     height: 35px;
     width: 100px;
@@ -50,13 +125,12 @@ header {
     background-color: $btColor;
     color: #ffffff;
     margin-top: 20px;
-       
+    transition: background-color 1s;
 
     &:hover {
       background-color: white;
-      color: $btColor;      
+      color: $btColor;
     }
- 
   }
 }
 
@@ -71,12 +145,17 @@ header {
     align-items: center;
     width: 800px;
 
+
+    // Uso de map
+
     p {
-      margin: 0px 50px 0px 50px;
-      text-align: justify;
+      margin: map-get($text, mar);
+      color: map-get($text, col);
+      text-align: map-get($text, ali);
     }
   }
 }
+
 .galeryTitle {
   font-size: 26pt;
   margin: 20px;
@@ -85,13 +164,34 @@ header {
 .heroGalery {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   column-gap: 20px;
 
   img {
     width: 500px;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
+
+.heroCards {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+
+  // Uso de extend
+  .cards {
+    @extend %cards;
+
+    img {
+      width: 200px;
+    }
+  }
+}
+
 
 footer {
   display: flex;
